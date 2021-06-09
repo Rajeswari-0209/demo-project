@@ -1,22 +1,11 @@
-from django.contrib.auth.models import User, Group
+from django.shortcuts import render
 from rest_framework import viewsets
-from rest_framework import permissions
-from demoapp.serializers import UserSerializer, GroupSerializer
+from demoapp.serializers import TweetSerializer
+from .models import Tweet
 
-
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
-    permission_classes = [permissions.IsAuthenticated]
+class TweetViewSet(viewsets.ModelViewSet):
+    # queryset = Tweet.objects.all().order_by()
+    queryset = Tweet.objects.order_by('created_at').reverse().all()[:20]
+    serializer_class = TweetSerializer
+   
+Tweet.objects.order_by('created_at').reverse().all()[:20]

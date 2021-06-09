@@ -1,15 +1,8 @@
-from django.contrib.auth.models import User, Group
 from rest_framework import serializers
+from .models import Tweet
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class TweetSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ['url', 'username', 'email',
-                  'first_name', 'last_name', 'groups']
-
-
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Group
-        fields = ['url', 'name']
+        model = Tweet
+        fields = ['id','name','body','image','like_count','created_at','updated_at']
