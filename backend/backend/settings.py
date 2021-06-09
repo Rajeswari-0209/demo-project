@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'demoapp',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -78,8 +79,15 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd18gdclaks4cip',
+        'HOST' :'ec2-107-21-10-179.compute-1.amazonaws.com',
+        'PORT' : 5432,
+        'USER' : 'ufdpxjxsbdzzxb',
+        'PASSWORD' : '08364dc0875420de9a7ef163a77aba2b7ec6b8d095037b55be5715e896e0ddc6'
+
     }
 }
 
