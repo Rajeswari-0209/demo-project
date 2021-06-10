@@ -49,13 +49,13 @@ function Home() {
   };
   const fetchDataFromBackend = () =>
     axios
-      .get("http://localhost:8000/tweets/")
+      .get("https://demo-backend-productions.herokuapp.com/tweets/")
       .then((response) => setTweets(response.data))
       .catch((error) => console.error(error));
   useEffect(fetchDataFromBackend, []);
   const handleNewTweet = () =>
     axios
-      .post("http://localhost:8000/tweets/", {
+      .post("https://demo-backend-productions.herokuapp.com/tweets/", {
         name: newTweet,
         body: newBody,
         image: image,
