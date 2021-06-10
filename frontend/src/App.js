@@ -65,7 +65,7 @@ function Home() {
 
   const handleDeleteTweet = (id) =>
     axios
-      .delete("http://localhost:8000/tweets/" + String(id) + "/")
+      .delete("https://demo-backend-productions.herokuapp.com/tweets/" + String(id) + "/")
       .then((response) => fetchDataFromBackend())
       .catch((error) => console.error(error));
   return (
